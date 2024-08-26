@@ -1,6 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const MongoConnection = require("./config/db")
 
 dotenv.config()
 
@@ -13,6 +14,8 @@ app.use(cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true,
 }))
+
+MongoConnection();  // connection to the server
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
