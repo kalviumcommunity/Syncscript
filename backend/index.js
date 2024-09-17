@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const MongoConnection = require("./config/db")
+const userRouter = require('./routes/UserRoutes')
 
 dotenv.config()
 
@@ -16,6 +17,8 @@ app.use(cors({
 }))
 
 MongoConnection();  // connection to the server
+
+app.use("/user",userRouter)
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
