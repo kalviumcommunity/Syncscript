@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { Cursors } from "./Cursors";
 
 interface EditorProps {
   roomId: string;
@@ -24,7 +25,7 @@ interface EditorProps {
 }
 
 const Editor = ({ roomId, currentUserType }: EditorProps) => {
-    const [language, setLanguage] = useState('typescript');
+    const [language, setLanguage] = useState('javascript');
     const [fontSize, setFontSize] = useState(14);
     const [editorRef, setEditorRef] = useState<editor.IStandaloneCodeEditor>();
     const [provider, setProvider] = useState<LiveblocksYjsProvider>();
@@ -80,6 +81,7 @@ const Editor = ({ roomId, currentUserType }: EditorProps) => {
 
     return (
         <div className='w-full'>
+        {provider && <Cursors yProvider={provider} />}
             <div className="p-4">
                 <div className="flex justify-between">
                     <div className="mb-4 flex items-center gap-4">
@@ -90,12 +92,14 @@ const Editor = ({ roomId, currentUserType }: EditorProps) => {
                                 onValueChange={setLanguage}
                             >
                                 <SelectTrigger className="border-2 border-sky-500 w-[150px]">
-                                    <SelectValue placeholder="typescript" />
+                                    <SelectValue placeholder="javascript" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="typescript">TypeScript</SelectItem>
                                     <SelectItem value="javascript">JavaScript</SelectItem>
+                                    <SelectItem value="cpp">C++</SelectItem>
+                                    <SelectItem value="java">Java</SelectItem>
                                     <SelectItem value="python">Python</SelectItem>
+                                    <SelectItem value="typescript">TypeScript</SelectItem>
                                     <SelectItem value="html">HTML</SelectItem>
                                     <SelectItem value="css">CSS</SelectItem>
                                 </SelectContent>
@@ -135,7 +139,7 @@ const Editor = ({ roomId, currentUserType }: EditorProps) => {
                         height="100%"
                         width="100%"
                         theme="vs-dark"
-                        defaultLanguage={language}
+                        language={language}
                         defaultValue="// Start coding here..."
                         onMount={handleEditorMount}
                         options={{

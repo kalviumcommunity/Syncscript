@@ -367,3 +367,18 @@ body {
 .lb-elevation {
   background: #0f1c34;
 }
+
+
+.yRemoteSelection {
+  background-color: var(--user-color);
+  opacity: 0.5;
+}
+
+.yRemoteSelectionHead {
+  position: absolute;
+  border-left: 2px solid var(--user-color);
+  border-top: 2px solid var(--user-color);
+  border-bottom: 2px solid var(--user-color);
+  height: 100%;
+  box-sizing: border-box;
+}
