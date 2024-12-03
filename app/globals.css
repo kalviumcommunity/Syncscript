@@ -10,7 +10,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 @layer base {
   :root {
     --background: 20 14.3% 4.1%;
@@ -39,7 +38,7 @@ body {
     --chart-5: 340 75% 55%;
     --radius: 0.5rem;
   }
-  
+
   .light {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
@@ -368,7 +367,6 @@ body {
   background: #0f1c34;
 }
 
-
 .yRemoteSelection {
   background-color: var(--user-color);
   opacity: 0.5;
@@ -381,4 +379,10 @@ body {
   border-bottom: 2px solid var(--user-color);
   height: 100%;
   box-sizing: border-box;
+}
+.cl-internal-1rpdi70 {
+  display: none !important;
+}
+.cl-internal-1dauvpw {
+  display: none !important;
 }
